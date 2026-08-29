@@ -12,7 +12,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
+  }); 
 
   it(`should have the 'budget-manager-ui' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);

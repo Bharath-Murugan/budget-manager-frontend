@@ -1,0 +1,25 @@
+<h2> {{ title }}</h2>
+<div>
+    <label>Email</label>
+    <input type="email" [(ngModel)]="email">
+</div>
+<br>
+<div>
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password">
+</div>
+<br>
+<p *ngIf="errorMsg">
+    {{ errorMsg }}
+</p>
+<button (click)="login()"> Login </button>
+<!-- <h3>Categories</h3>
+<ul>
+     <li *ngFor="let category of Categories">
+        {{ category }}
+    </li>
+</ul>     -->
+
+
+
+

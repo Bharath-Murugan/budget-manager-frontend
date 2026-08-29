@@ -1,0 +1,27 @@
+<h2>Category management</h2>
+<p>welcome to category page</p>
+
+<table border ="1">
+    <thead>
+        <tr>
+            <th>Category_ID</th>
+            <th>Category_Name</th>
+            <th>Created At</th>
+        </tr>   
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let category of categories">
+                <td>{{ category.categoryId }}</td>
+                <td>{{ category.categoryName }}</td>
+                <td>{{ category.createdAt | date:'yyyy-MM-dd' }}</td>
+            </tr>
+        </tbody>
+</table>
+
+<h2>   Add Category</h2>
+<div>
+    <label>Category name:</label>
+    <input type="text" [(ngModel)]="category.categoryName" placeholder="Enter category name" />
+    <button (click) = "saveCategory()">save</button>
+</div>

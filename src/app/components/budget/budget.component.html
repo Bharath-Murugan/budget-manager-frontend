@@ -1,0 +1,47 @@
+<h2> Budget Management</h2>
+<p> Welcome to the Budget Page</p>
+
+
+<h3> Add New Budget </h3>
+<div>
+    <select [(ngModel)]="selectedCategory" name="category">
+        <option [ngValue]="null"> Select a category</option>
+        <option *ngFor="let c of categories" [ngValue]="c.categoryId">
+            {{ c.categoryName }}
+        </option>
+    </select>
+
+    <input type = "number" [(ngModel)]="budget.amount" placeholder="Enter your budget amount">
+    <input type = "date" [(ngModel)]="budget.startDate" placeholder="Enter your budget start date">
+    <input type = "date" [(ngModel)] = "budget.endDate" placeholder="Enter your budget end Date">
+    <button (click) = "saveBudget()">Save Budget</button>
+    <button (click) = "resetBudget()"> Reset </button>
+
+</div>
+
+<table border = "1">
+    <thead>
+        <tr>
+            <th>BugetID</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Created Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let budget of budgets">
+            <td> {{ budget.budgetId }} </td>
+            <td> {{ budget.categoryId }} </td>
+            <td> {{ budget.amount }} </td>
+            <td> {{ budget.startDate | date }} </td>
+            <td> {{ budget.endDate | date }} </td>
+            <td> {{ budget.createdAt | date }} </td>
+        </tr>
+
+    </tbody>
+</table>
+
+
