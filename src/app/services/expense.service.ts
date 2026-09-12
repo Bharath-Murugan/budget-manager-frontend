@@ -14,7 +14,10 @@ private saveExpenseUrl = 'http://localhost:8080/expenses';
   constructor(private http: HttpClient) { }
 
   getAllExpenses(): Observable<any> {
-    return this.http.get(this.saveExpenseUrl);
+    return this.http.get(this.saveExpenseUrl,{
+      withCredentials: true
+    });
+    
   }
 
   saveExpense(expense: Expense): Observable<any>{
