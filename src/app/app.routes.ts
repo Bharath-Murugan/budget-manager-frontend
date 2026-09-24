@@ -4,11 +4,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CategoryComponent } from './components/category/category.component';
 import { BudgetComponent } from './components/budget/budget.component';
 import { ExpenseComponent } from './components/expense/expense.component';
+import { RegisterComponent } from './components/register/register.component';
 export const routes: Routes = [
 
     {
         path: '',
         component: LoginComponent
+    },
+
+    {
+        path: 'register',
+        component: RegisterComponent
     },
 
     {

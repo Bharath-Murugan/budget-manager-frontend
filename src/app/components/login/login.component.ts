@@ -3,11 +3,12 @@ import { FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CategoryService } from '../../services/CategoryService';
 import { LoginService } from '../../services/login.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -16,11 +17,17 @@ export class LoginComponent {
   email='';
   password='';
   errorMsg='';
+  successMsg='';
 
   Categories: string[] =['Food','Transport','Entertainment','Utilities','Health','Education','Shopping','Other'];
   constructor(private categoryservice: CategoryService,
     private loginservice: LoginService,
-    private router: Router){}
+    private router: Router,
+    private route: ActivatedRoute) {
+      if (this.route.snapshot.queryParamMap.get('registered') === 'success') {
+        this.successMsg = 'Registration successful. You can now log in.';
+      }
+    }
   
   // loadCategories(){
   //   this.categoryservice.getAllCategories().subscribe(response => {
